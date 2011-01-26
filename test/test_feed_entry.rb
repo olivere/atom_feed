@@ -48,6 +48,21 @@ class TestFeedEntry < Test::Unit::TestCase
       assert_equal "Some text.", @entry.summary.content
       assert_equal "Some text.", @entry.summary.to_s
     end
+    should "not have categories" do
+      assert @entry.categories.empty?
+    end
+    should "not have contributors" do
+      assert @entry.contributors.empty?
+    end
+    should "not have published" do
+      assert_nil @entry.published
+    end
+    should "not have source" do
+      assert_nil @entry.source
+    end
+    should "not have rights" do
+      assert_nil @entry.rights
+    end
   end
 
   VALID_XML = <<EOF

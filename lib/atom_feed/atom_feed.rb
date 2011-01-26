@@ -9,6 +9,7 @@ require 'atom_feed/atom_generator'
 require 'atom_feed/atom_link'
 require 'atom_feed/atom_person'
 require 'atom_feed/atom_text'
+require 'atom_feed/open_search'
 
 module AtomFeed
   # AtomFeed::AtomFeed is the central place for
@@ -126,6 +127,11 @@ module AtomFeed
       node = @doc.at_xpath("xmlns:feed/xmlns:subtitle")
       return nil unless node
       AtomText.new(node)
+    end
+
+    # Open Search extensions (optional)
+    def open_search
+      @open_search ||= OpenSearch.new(@doc)
     end
 
   end

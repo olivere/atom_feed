@@ -44,5 +44,41 @@ module AtomFeed
       return nil unless node
       AtomText.new(node)
     end
+
+    # categories (optional)
+    def categories
+      nodes = @node.xpath("xmlns:category") || []
+      nodes.map { |node| AtomCategory.new(node) }
+    end
+
+    # contributors (optional)
+    def contributors
+      nodes = @node.xpath("xmlns:contributor") || []
+      nodes.map { |node| AtomPerson.new(node) }
+    end
+
+    # Published (optional)
+    def published
+      time = @node.at_xpath("xmlns:published").try(:content)
+      return nil unless time
+      Time.parse(time)
+    end
+
+    # source (optional)
+    def source
+      if node = @node.at_xpath("xmlns:source")
+        AtomFeedEntry.new(node)
+      end
+    end
+
+    # rights (optional)
+    def rights
+      node = @node.at_xpath("xmlns:rights")
+      return nil unless node
+      AtomText.new(node)
+    end
+
+    # extensibility
+
   end
 end
