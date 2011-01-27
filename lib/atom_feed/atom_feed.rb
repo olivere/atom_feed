@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 require 'nokogiri'
-require 'open-uri'
 require 'atom_feed/core_ext'
 require 'atom_feed/atom_feed_entry'
 require 'atom_feed/atom_category'
@@ -39,9 +38,16 @@ module AtomFeed
   #     end
   #   end
   #
-  # AtomFeed uses Nokogiri.
+  # You can access OpenSearch extensions by using +AtomFeed.open_search+.
+  # Access to other embedded XML types are available by using AtomFeed.doc+
+  # directly. It's a +Nokogiri::XML+ instance.
+  #
+  # AtomFeed uses Nokogiri for parsing.
   #
   class AtomFeed
+
+    attr_reader :doc
+
     def initialize(doc)
       @doc = doc
     end
@@ -55,76 +61,76 @@ module AtomFeed
 
     # Feed id (required).
     def id
-      @doc.at_xpath("xmlns:feed/xmlns:id").content
+      @doc.at_xpath("atom:feed/atom:id", ::AtomFeed::NS).content
     end
 
     # Feed title (required).
     def title
-      @doc.at_xpath("xmlns:feed/xmlns:title").content
+      @doc.at_xpath("atom:feed/atom:title", ::AtomFeed::NS).content
     end
 
     # Feed update date (required).
     def updated
-      Time.parse @doc.at_xpath("xmlns:feed/xmlns:updated").content
+      Time.parse @doc.at_xpath("atom:feed/atom:updated", ::AtomFeed::NS).content
     end
 
     # Array of Authors (optional).
     def authors
-      nodes = @doc.xpath("xmlns:feed/xmlns:author") || []
+      nodes = @doc.xpath("atom:feed/atom:author", ::AtomFeed::NS) || []
       nodes.map { |node| AtomPerson.new(node) }
     end
 
     # Array of links (optional).
     def links
-      nodes = @doc.xpath("xmlns:feed/xmlns:link") || []
+      nodes = @doc.xpath("atom:feed/atom:link", ::AtomFeed::NS) || []
       nodes.map { |node| AtomLink.new(node) }
     end
 
     # Array of feed entries (optional).
     def entries
-      nodes = @doc.xpath("xmlns:feed/xmlns:entry") || []
+      nodes = @doc.xpath("atom:feed/atom:entry", ::AtomFeed::NS) || []
       nodes.map { |node| AtomFeedEntry.new(node) }
     end
 
     # Array of feed categories (optional).
     def categories
-      nodes = @doc.xpath("xmlns:feed/xmlns:category") || []
+      nodes = @doc.xpath("atom:feed/atom:category", ::AtomFeed::NS) || []
       nodes.map { |node| AtomCategory.new(node) }
     end
 
     # Array of contributors (optional).
     def contributors
-      nodes = @doc.xpath("xmlns:feed/xmlns:contributor") || []
+      nodes = @doc.xpath("atom:feed/atom:contributor", ::AtomFeed::NS) || []
       nodes.map { |node| AtomPerson.new(node) }
     end
 
     # Generator (optional).
     def generator
-      node = @doc.at_xpath("xmlns:feed/xmlns:generator")
+      node = @doc.at_xpath("atom:feed/atom:generator", ::AtomFeed::NS)
       return nil unless node
       AtomGenerator.new(node)
     end
 
     # Icon (optional).
     def icon
-      @doc.at_xpath("xmlns:feed/xmlns:icon").try(:content)
+      @doc.at_xpath("atom:feed/atom:icon", ::AtomFeed::NS).try(:content)
     end
 
     # Logo (optional).
     def logo
-      @doc.at_xpath("xmlns:feed/xmlns:logo").try(:content)
+      @doc.at_xpath("atom:feed/atom:logo", ::AtomFeed::NS).try(:content)
     end
 
     # rights (optional)
     def rights
-      node = @doc.at_xpath("xmlns:feed/xmlns:rights")
+      node = @doc.at_xpath("atom:feed/atom:rights", ::AtomFeed::NS)
       return nil unless node
       AtomText.new(node)
     end
 
     # subtitle (optional)
     def subtitle
-      node = @doc.at_xpath("xmlns:feed/xmlns:subtitle")
+      node = @doc.at_xpath("atom:feed/atom:subtitle", ::AtomFeed::NS)
       return nil unless node
       AtomText.new(node)
     end

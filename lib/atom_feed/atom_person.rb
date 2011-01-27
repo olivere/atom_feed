@@ -7,17 +7,17 @@ module AtomFeed
 
     # Human readable name of the person (required)
     def name
-      @node.at_xpath("xmlns:name").content
+      @node.at_xpath("atom:name", ::AtomFeed::NS).content
     end
 
     # Home page for the person (optional)
     def uri
-      @node.at_xpath("xmlns:uri").try(:content)
+      @node.at_xpath("atom:uri", ::AtomFeed::NS).try(:content)
     end
 
     # Email address of the person (optional)
     def email
-      @node.at_xpath("xmlns:email").try(:content)
+      @node.at_xpath("atom:email", ::AtomFeed::NS).try(:content)
     end
   end
 end

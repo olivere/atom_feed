@@ -12,24 +12,26 @@ module AtomFeed
     end
 
     def total_results
-      @node.at_xpath("xmlns:feed/opensearch:totalResults").content.to_i rescue nil
+      @node.at_xpath("atom:feed/opensearch:totalResults", ::AtomFeed::NS).content.to_i rescue nil
     end
 
     def start_index
-      @node.at_xpath("xmlns:feed/opensearch:startIndex").content.to_i rescue nil
+      @node.at_xpath("atom:feed/opensearch:startIndex", ::AtomFeed::NS).content.to_i rescue nil
     end
 
+=begin
     def start_page
-      @node.at_xpath("xmlns:feed/opensearch:startPage").content.to_i rescue nil
+      @node.at_xpath("atom:feed/opensearch:startPage", ::AtomFeed::NS).content.to_i rescue nil
     end
+=end
 
     def items_per_page
-      @node.at_xpath("xmlns:feed/opensearch:itemsPerPage").content.to_i rescue nil
+      @node.at_xpath("atom:feed/opensearch:itemsPerPage", ::AtomFeed::NS).content.to_i rescue nil
     end
 
     # queries
     def queries
-      nodes = @node.xpath("xmlns:feed/opensearch:Query") rescue nil
+      nodes = @node.xpath("atom:feed/opensearch:Query", ::AtomFeed::NS) rescue nil
       nodes.map { |node| OpenSearchQuery.new(node) } if nodes
     end
 

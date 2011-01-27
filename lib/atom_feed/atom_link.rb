@@ -44,6 +44,36 @@ module AtomFeed
       self.rel == "via"
     end
 
+    # Link to edit?
+    def edit?
+      self.rel == "edit"
+    end
+
+    # Reference to OpenSearch description document (OpenSearch extension)?
+    def search?
+      self.rel == "search"
+    end
+
+    # Reference to first search result in OpenSearch (OpenSearch extension)?
+    def first?
+      self.rel == "first"
+    end
+
+    # Reference to previous search results in OpenSearch (OpenSearch extension)?
+    def previous?
+      self.rel == "previous"
+    end
+
+    # Reference to next search results in OpenSearch (OpenSearch extension)?
+    def next?
+      self.rel == "next"
+    end
+
+    # Reference to last search result in OpenSearch (OpenSearch extension)?
+    def last?
+      self.rel == "last"
+    end
+
     # Media type of the resource (optional)
     def type
       @node["type"]
@@ -63,5 +93,6 @@ module AtomFeed
     def length
       @node["length"]
     end
+
   end
 end
