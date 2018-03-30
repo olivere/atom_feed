@@ -6,6 +6,7 @@ extra_rdoc_files = ['CHANGELOG.md', 'LICENSE', 'README.md']
 Gem::Specification.new do |s|
   s.name = 'atom_feed'
   s.version = AtomFeed::VERSION.dup
+  s.license = "MIT"
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.6") if s.respond_to? :required_rubygems_version=
   s.authors = ['Oliver Eilhard']
   s.description = %q{Ruby library for parsing Atom feeds.}
@@ -20,8 +21,8 @@ Gem::Specification.new do |s|
   s.test_files = `git ls-files -- {spec}/*`.split("\n")
 
   s.add_development_dependency("bundler", "~> 1.0")
-  s.add_development_dependency("rdoc", "~> 2.5")
-  s.add_development_dependency("rake", ">= 0.8")
-  s.add_development_dependency("nokogiri", ">= 1.4.4")
+  s.add_development_dependency("rdoc", "~> 3.12", ">= 3.12.1")
+  s.add_development_dependency("rake", "~> 12.3")
+  s.add_development_dependency("nokogiri", '~> 1.8', '>= 1.8.2')
 end
 
