@@ -3,8 +3,8 @@
 require 'atom_feed'
 require 'test/unit'
 require 'open-uri'
-require 'fakeweb'
 require 'shoulda'
+require 'webmock/test_unit'
 
 class TestFeedEntry < Test::Unit::TestCase
   include AtomFeed

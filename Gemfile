@@ -1,8 +1,6 @@
-source :gemcutter
-
-gem 'nokogiri', '~>1.8.2'
+source :rubygems
 
 group :development do
-  gem 'fakeweb', "~> 1.3"
-  gem 'shoulda', '~> 3.5.0'
+  gem 'webmock', "~> 3.5.1"
+  gem 'shoulda', '~> 3.6.0'
 end
