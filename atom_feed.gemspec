@@ -7,21 +7,22 @@ Gem::Specification.new do |s|
   s.name = 'atom_feed'
   s.version = AtomFeed::VERSION.dup
   s.license = "MIT"
-  s.required_rubygems_version = Gem::Requirement.new(">= 1.3.6") if s.respond_to? :required_rubygems_version=
   s.authors = ['Oliver Eilhard']
+  s.summary = %q{Parse Atom feeds}
   s.description = %q{Ruby library for parsing Atom feeds.}
   s.email = ['oliver.eilhard@gmail.com']
   s.extra_rdoc_files = extra_rdoc_files
   s.homepage = 'http://github.com/olivere/atom_feed'
   s.rdoc_options = ['--charset=UTF-8']
+  s.required_ruby_version = '>= 2.6'
   s.require_paths = ['lib']
-  s.summary = s.description
   s.executables = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.files = `git ls-files -- {bin,lib,spec}/*`.split("\n") + extra_rdoc_files
   s.test_files = `git ls-files -- {spec}/*`.split("\n")
 
-  s.add_development_dependency("bundler", "~> 1.17.2")
-  s.add_development_dependency("rdoc", "~> 3.12", ">= 3.12.1")
-  s.add_development_dependency("rake", "~> 12.3")
+  s.add_dependency("nokogiri", "~> 1.11.5")
+  s.add_development_dependency("bundler", "~> 2.2.17")
+  s.add_development_dependency("rdoc", "~> 6.3.1")
+  s.add_development_dependency("rake", "~> 13.0.3")
+  s.add_development_dependency("solargraph", "~> 0.40.4")
 end
-
