@@ -7,7 +7,7 @@
 # This library is for parsing Atom feeds.
 
 module AtomFeed
-  VERSION = "0.3.0"
+  VERSION = "0.3.1"
 
   # Atom 1.0 namespace
   NS_ATOM_2005 = "http://www.w3.org/2005/Atom"
