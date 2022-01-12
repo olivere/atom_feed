@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = extra_rdoc_files
   s.homepage = 'http://github.com/olivere/atom_feed'
   s.rdoc_options = ['--charset=UTF-8']
-  s.required_ruby_version = '>= 2.6'
+  s.required_ruby_version = '>= 2.7'
   s.require_paths = ['lib']
   s.executables = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.files = `git ls-files -- {bin,lib,spec}/*`.split("\n") + extra_rdoc_files
