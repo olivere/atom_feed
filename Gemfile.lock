@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    atom_feed (0.3.2)
+    atom_feed (0.3.3)
       nokogiri (~> 1.13.8)
 
 GEM
