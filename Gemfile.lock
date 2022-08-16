@@ -2,12 +2,12 @@ PATH
   remote: .
   specs:
     atom_feed (0.3.2)
-      nokogiri (~> 1.12.5)
+      nokogiri (~> 1.13.8)
 
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (7.0.1)
+    activesupport (7.0.3.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -17,48 +17,50 @@ GEM
     ast (2.4.2)
     backport (1.2.0)
     benchmark (0.2.0)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     crack (0.4.5)
       rexml
     diff-lcs (1.5.0)
     e2mmap (0.1.0)
     hashdiff (1.0.1)
-    i18n (1.8.11)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
-    kramdown (2.3.1)
+    json (2.6.2)
+    kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
-    mini_portile2 (2.6.1)
-    minitest (5.15.0)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
+    mini_portile2 (2.8.0)
+    minitest (5.16.2)
+    nokogiri (1.13.8)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    parallel (1.21.0)
-    parser (3.1.0.0)
+    parallel (1.22.1)
+    parser (3.1.2.1)
       ast (~> 2.4.1)
     power_assert (2.0.1)
-    public_suffix (4.0.6)
+    public_suffix (4.0.7)
     racc (1.6.0)
     rainbow (3.1.1)
     rake (13.0.6)
     rdoc (6.3.3)
-    regexp_parser (2.2.0)
+    regexp_parser (2.5.0)
     reverse_markdown (2.1.1)
       nokogiri
     rexml (3.2.5)
-    rubocop (1.24.1)
+    rubocop (1.35.0)
+      json (~> 2.3)
       parallel (~> 1.10)
-      parser (>= 3.0.0.0)
+      parser (>= 3.1.2.1)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
-      rexml
-      rubocop-ast (>= 1.15.1, < 2.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.20.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.15.1)
-      parser (>= 3.0.1.1)
+    rubocop-ast (1.21.0)
+      parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
     shoulda (4.0.0)
       shoulda-context (~> 2.0)
@@ -84,16 +86,16 @@ GEM
     test-unit (3.3.9)
       power_assert
     thor (1.2.1)
-    tilt (2.0.10)
-    tzinfo (2.0.4)
+    tilt (2.0.11)
+    tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.1.0)
+    unicode-display_width (2.2.0)
     webmock (3.13.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
     webrick (1.7.0)
-    yard (0.9.27)
+    yard (0.9.28)
       webrick (~> 1.7.0)
 
 PLATFORMS
@@ -101,7 +103,7 @@ PLATFORMS
 
 DEPENDENCIES
   atom_feed!
-  bundler (~> 2.2.17)
+  bundler (~> 2.3.20)
   rake (~> 13.0.6)
   rdoc (~> 6.3.2)
   shoulda (~> 4.0.0)
@@ -110,4 +112,4 @@ DEPENDENCIES
   webmock (~> 3.13.0)
 
 BUNDLED WITH
-   2.2.17
+   2.3.20
